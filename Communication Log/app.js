@@ -1,18 +1,19 @@
 const form = document.getElementById('entriesMade');
 const input = form.querySelectorAll('input');
-const ul = document.getElementById('entries');
+const tr = document.getElementById('rows');
+
 
 
 function attachName() {
-    const text = input[0].value;
-    const date = input[1].value;
-    const message = input[2].value;
-    console.log(text);
-    const li = document.createElement('li');
-    li.textContent = `${text}   ${date}  ${message}`;
-    ul.appendChild(li);
-
-}
+        const row = document.createElement('tr');
+        tr.appendChild(row);
+    
+            for (let i = 0; i<input.length; i += 1){
+                const td = document.createElement('td');
+                td.textContent = input[i].value;
+                row.appendChild(td);
+            }
+        }
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
